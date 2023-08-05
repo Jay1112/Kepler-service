@@ -7,6 +7,8 @@ const mailServiceObj = require('../service/mail-service');
 class AuthService {
     
     saltRounds = 10 ;
+    startOTP = 100000 ;
+    endOTP = 999999 ;
 
     async encryptPassword(str){
         try{
@@ -49,8 +51,9 @@ class AuthService {
 
         try{
             const result = await userModal.create(newUser);
+            const otp = Math.floor(Math.random() * (this.endOTP - this.startOTP + 1)) + this.startOTP;
             const data = {
-                otp : 111299,
+                otp,
                 email : result?.email
             }
             const mailResponse = await mailServiceObj.composeMail(data);

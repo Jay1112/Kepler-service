@@ -53,6 +53,7 @@ class MailService {
       }
     }
 }
+
 const gmail       = process.env.GMAIL ;
 const password    = process.env.PASSWORD ;
 const mailServiceObj = new MailService(gmail,password);
