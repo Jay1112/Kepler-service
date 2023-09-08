@@ -15,13 +15,9 @@ const userSchema = new mongoose.Schema({
         type : String,
         require : true,
     },
-    auth_state : {
-        type : Number,
+    verified : {
+        type : Boolean,
         require : true,
-    },
-    otp : {
-        type : Number,
-        require : false
     }
 });
 
